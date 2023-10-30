@@ -15,4 +15,4 @@ korpa.kuciste = 470;
 // assign() Method
 Object.assign(korpa, { "Floppy disk": 100, "CD Rom": 150 });
 
-//
+//nesto sam dodao
