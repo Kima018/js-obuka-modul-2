@@ -1,3 +1,5 @@
+//---------------HomeWork---------------------
+
 var korpa = ["Maticna ploca", "Ram memorija", "Graficka karta"];
 
 for (var proizvod in korpa) {
@@ -10,6 +12,7 @@ var sadrzajKorpe = {
   gpu: 350,
 };
 
+//Nzm da li je pravilno ovako, vrv postoji mnogo bolji nacin ali sam isprobao i radi
 var ukupnaCena = 0;
 
 for (var proizvod in sadrzajKorpe) {
