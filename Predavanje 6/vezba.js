@@ -21,6 +21,7 @@ for (var proizvod in sadrzajKorpe) {
 }
 console.log("Ukupna cena je " + ukupnaCena);
 
+//dodavanje innerHTML u div
 document.getElementById("listaKomponenata").innerHTML = "<h5>Pozdrav!</h5>";
 document.getElementById("listaKomponenata").innerHTML += "<h2>Maki</h2>";
 
