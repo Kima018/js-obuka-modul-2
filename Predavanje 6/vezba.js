@@ -20,3 +20,11 @@ for (var proizvod in sadrzajKorpe) {
   console.log(`Cena za ${proizvod} je ${sadrzajKorpe[proizvod]}`);
 }
 console.log("Ukupna cena je " + ukupnaCena);
+
+document.getElementById("listaKomponenata").innerHTML = "<h5>Pozdrav!</h5>";
+document.getElementById("listaKomponenata").innerHTML += "<h2>Maki</h2>";
+
+//Dodavanje proizvoda iz korpe u div koristeci .innerHTML i for petlje
+for (var proizvod in korpa) {
+  document.getElementById("vezba").innerHTML += `<h2>${korpa[proizvod]}</h2>`;
+}
