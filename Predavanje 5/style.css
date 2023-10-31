@@ -1,0 +1,19 @@
+.slika {
+  width: 200px;
+  border-radius: 12px;
+}
+
+.border {
+  border: 2px solid red;
+}
+
+#naslov {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  cursor: pointer;
+  margin: 2rem 0;
+  font-size: 3rem;
+  letter-spacing: 0.05em;
+}
+.text-decoration {
+  text-decoration: underline;
+}
