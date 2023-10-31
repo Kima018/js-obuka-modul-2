@@ -10,6 +10,7 @@ for (var i = 0; i < tekst.length; i++) {
 
 function dodajVreme() {
   document.getElementById("vreme").innerHTML = Date();
+  console.log(Date());
 }
 /*var tekst = document.getElementsByClassName("tekst_sajta");
 tekst[0].style.color = "green";
