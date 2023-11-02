@@ -1,0 +1,23 @@
+.main-wrapper {
+  width: 100vw;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border-radius: 0.5rem;
+}
+.plava {
+  background-color: blue;
+}
+.crna {
+  background-color: black;
+}
