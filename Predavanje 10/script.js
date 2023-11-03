@@ -29,3 +29,14 @@ function proveriGodine() {
   input.value = "";
   console.log(input);
 }
+document.getElementById("racunaljka").addEventListener("click", izracunaj);
+function izracunaj() {
+  var deljenik = prompt("Koji broj zelite da podelite");
+  var delilac = prompt("Kojim brojem zelite da podelite");
+  if (delilac != 0) {
+    alert(`Rezultat je  => ${deljenik / delilac} `);
+    console.log(deljenik / delilac);
+  } else {
+    alert("Deljenje brojem 0 nije dozvoljeno!");
+  }
+}
