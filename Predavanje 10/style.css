@@ -1,0 +1,11 @@
+#dugme {
+  height: 3rem;
+  width: 6rem;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+}
+.button {
+  border: 5px double red;
+}
