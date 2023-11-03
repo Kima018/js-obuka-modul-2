@@ -9,3 +9,19 @@
 .button {
   border: 5px double red;
 }
+
+.header-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.header-wrap h2 p {
+  padding: 0;
+  margin: 0;
+}
+.xxs-gap {
+  gap: 5px;
+}
