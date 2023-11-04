@@ -1,16 +1,16 @@
-var gradovi = [
-  {
-    ime: "Beograd",
-    temperatura: -2,
-    padavine: "sneg", //sneg, kisa, bez padavina
-  },
-  {
-    ime: "Subotica",
-    temperatura: 13,
-    padavine: "bez padavina",
-  },
-];
-// var gradovi = [];
+// var gradovi = [
+//   {
+//     ime: "Beograd",
+//     temperatura: -2,
+//     padavine: "sneg", //sneg, kisa, bez padavina
+//   },
+//   {
+//     ime: "Subotica",
+//     temperatura: 13,
+//     padavine: "bez padavina",
+//   },
+// ];
+var gradovi = [];
 
 document.getElementById("dodajGrad").addEventListener("click", dodajGrad);
 document
