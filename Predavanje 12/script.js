@@ -12,24 +12,37 @@ var gradovi = [
 ];
 
 for (var grad in gradovi) {
-  var vreme = document.createElement("p");
-  vreme.textContent =
-    gradovi[grad].ime +
-    " " +
-    gradovi[grad].temperatura +
-    " " +
-    gradovi[grad].padavine;
-  document.getElementById("prognoza").appendChild(vreme);
+  var prognoza = gradovi[grad];
 
-  // .getElementById("prognoza")
-  // .append(
-  //   gradovi[grad].ime +
-  //     "" +
-  //     gradovi[grad].temperatura +
-  //     "" +
-  //     gradovi[grad].padavine
-  // );
-  // console.log(gradovi[i].ime);
-  // console.log(gradovi[i].temperatura);
-  // console.log(gradovi[i].padavine);
+  var paragraf = document.createElement("p");
+  var paragrafText = document.createTextNode(
+    prognoza["ime"] + " " + prognoza["temperatura"] + " " + prognoza["padavine"]
+  );
+
+  paragraf.append(paragrafText);
+
+  console.log(paragraf);
+  document.getElementById("prognoza").append(paragraf);
 }
+// for (var grad in gradovi) {
+//   var vreme = document.createElement("p");
+//   vreme.textContent =
+//     prognoza["ime"] +
+//     " " +
+//     prognoza.temperatura +
+//     " " +
+//     prognoza.padavine;
+
+//   document.getElementById("prognoza").appendChild(vreme);
+//------------------------------------------------------------------
+// .getElementById("prognoza")
+// .append(
+//   prognoza.ime +
+//     "" +
+//     prognoza.temperatura +
+//     "" +
+//     prognoza.padavine
+// );
+// console.log(gradovi[i].ime);
+// console.log(gradovi[i].temperatura);
+// console.log(gradovi[i].padavine);
