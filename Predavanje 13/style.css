@@ -1,0 +1,9 @@
+#paragarf {
+  width: 100vw;
+}
+.displayBlock {
+  display: block;
+}
+.displayNone {
+  display: none;
+}
