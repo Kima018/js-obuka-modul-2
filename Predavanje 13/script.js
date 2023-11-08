@@ -13,14 +13,16 @@ $(document).ready(function () {
     //ready  = css
     //function (){}
 
-    $(this).css({
-      backgroundColor: "red",
-      color: "white",
-    });
+    $(this).animate(
+      {
+        backgroundColor: "red",
+        color: "white",
+      },
+      800
+    );
   });
   $("#hideShowParagraph").click(function () {
-    $(this).text("Hide Paragraph");
     // $("#paragraf").toggleClass("displayNone");
-    $("#paragraf").slidetoggle();
+    $("#paragraf").slideToggle();
   });
 });
