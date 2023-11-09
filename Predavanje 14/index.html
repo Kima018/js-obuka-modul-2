@@ -4,15 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form>
+    <form id="loginForma">
       <input
         type="text"
         id="username"
         placeholder="Unesite vase korisnicko ime"
       />
+      <p id="wrongUsername">Uneli ste pogresno korisnicko ime</p>
       <input type="password" id="password" placeholder="Unesite vasu lozinku" />
+      <p id="wrongPassword">Uneli ste pogresn sifru</p>
+
       <button type="button" id="loginButton">Uloguj se</button>
     </form>
 

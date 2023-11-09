@@ -1,0 +1,23 @@
+#loginForma {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2rem;
+}
+#loginForma p {
+  color: red;
+  font-style: oblique;
+  display: none;
+}
+#wrongUsername {
+  position: absolute;
+  top: 10px;
+}
+#wrongPassword {
+  position: absolute;
+  top: 65px;
+}
+.action-div {
+  background-color: red;
+}
