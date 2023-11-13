@@ -1,7 +1,127 @@
+:root {
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0;
+}
+body {
+  color: white;
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.02338rem;
+}
+p {
+  margin: 0;
+}
+#cityName {
+  color: var(--label-dark-primary, #fff);
+  text-align: center;
+
+  /* Default/Regular/LargeTitle */
+  font-family: SF Pro Display;
+  font-size: 2.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.5625rem; /* 120.588% */
+}
+#currentTemp {
+  color: #fff;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF Pro Display;
+  font-size: 6rem;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 4.375rem; /* 72.917% */
+}
+#nebo {
+  color: var(--label-dark-secondary, rgba(235, 235, 245, 0.6));
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF Pro Display;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5rem; /* 120% */
+  letter-spacing: 0.02375rem;
+}
+#nebo p s {
+  color: var(--label-dark-primary, #fff);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: SF Pro Display;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5rem;
+  letter-spacing: 0.02375rem;
+}
+
 .homePage {
   height: 100vh;
   background: url("../images/bg.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
+.modal-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 20rem;
+  z-index: 9999;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(
+    168deg,
+    rgba(46, 51, 90, 0.26) -4.68%,
+    rgba(28, 27, 51, 0.26) 95.45%
+  );
+  box-shadow: 0px 1px 0px 0px #fff inset;
+  backdrop-filter: blur(25px);
+}
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #fff;
+}
+.forecast-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  min-height: 11rem;
+  overflow: auto;
+}
+.weather-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.5rem;
+  border: 1px solid grey;
+  border-radius: 1.88rem;
+  width: 3.75rem;
+  font-size: 0.93rem;
+  text-wrap: nowrap;
+}
+/* .modal-bg {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    168deg,
+    rgba(46, 51, 90, 0.26) -4.68%,
+    rgba(28, 27, 51, 0.26) 95.45%
+  );
+  box-shadow: 0px 1px 0px 0px #fff inset;
+  backdrop-filter: blur(25px);
+} */
