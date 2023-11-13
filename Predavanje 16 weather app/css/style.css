@@ -1,0 +1,7 @@
+.homePage {
+  height: 100vh;
+  background: url("../images/bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
