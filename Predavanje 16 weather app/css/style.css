@@ -1,60 +1,28 @@
-:root {
-  font-family: SF Pro Display;
-  font-style: normal;
-  font-weight: 400;
-  margin: 0;
-}
+/* css mi je bas BAD, bootstrap mi ne ide nesto najbolje ali bice bolje */
 body {
   color: white;
-  font-family: SF Pro Display;
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0.02338rem;
 }
-p {
+p,
+s {
   margin: 0;
 }
 #cityName {
-  color: var(--label-dark-primary, #fff);
-  text-align: center;
-
-  /* Default/Regular/LargeTitle */
-  font-family: SF Pro Display;
-  font-size: 2.125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 2.5625rem; /* 120.588% */
+  font-size: 2.5rem;
 }
 #currentTemp {
-  color: #fff;
-  text-align: center;
-  font-feature-settings: "clig" off, "liga" off;
-  font-family: SF Pro Display;
   font-size: 6rem;
-  font-style: normal;
   font-weight: 200;
-  line-height: 4.375rem; /* 72.917% */
+  line-height: 1em;
 }
 #nebo {
+  font-size: 1.5rem;
   color: var(--label-dark-secondary, rgba(235, 235, 245, 0.6));
-  text-align: center;
-  font-feature-settings: "clig" off, "liga" off;
-  font-family: SF Pro Display;
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.5rem; /* 120% */
-  letter-spacing: 0.02375rem;
 }
 #nebo p s {
-  color: var(--label-dark-primary, #fff);
-  font-feature-settings: "clig" off, "liga" off;
-  font-family: SF Pro Display;
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.5rem;
-  letter-spacing: 0.02375rem;
 }
 
 .homePage {
@@ -67,6 +35,21 @@ p {
   flex-direction: column;
   align-items: center;
   position: relative;
+  padding-top: 2rem;
+  max-width: 600px;
+}
+#centralImageWrap {
+  display: flex;
+  width: 24.375rem;
+  height: 24.375rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+#house {
+  width: 100%;
+  height: 100%;
+  fit: cover;
 }
 .modal-wrapper {
   position: absolute;
@@ -98,7 +81,7 @@ p {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  min-height: 11rem;
+  min-height: 10rem;
   overflow: auto;
 }
 .weather-item {
@@ -113,15 +96,11 @@ p {
   width: 3.75rem;
   font-size: 0.93rem;
   text-wrap: nowrap;
+  text-align: center;
 }
-/* .modal-bg {
+.itemImg {
   width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    168deg,
-    rgba(46, 51, 90, 0.26) -4.68%,
-    rgba(28, 27, 51, 0.26) 95.45%
-  );
-  box-shadow: 0px 1px 0px 0px #fff inset;
-  backdrop-filter: blur(25px);
-} */
+  display: inline;
+}
+#dreggableParent {
+}
