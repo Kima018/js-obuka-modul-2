@@ -9,6 +9,7 @@ $(document).ready(function () {
       aqi: "no",
       alerts: "no",
     },
+
     success: function (response) {
       $("#cityName").text(response["location"]["name"]);
       $("#currentTemp").text(response["current"]["temp_c"] + "°C");
@@ -41,9 +42,6 @@ $(document).ready(function () {
         $("#hourlyWrapper").append(weatherItem);
       });
     },
-  });
-  $("#hourlyWrapper").draggable({
-    axis: "x",
   });
 });
 
