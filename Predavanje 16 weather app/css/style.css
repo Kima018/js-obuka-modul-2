@@ -36,6 +36,19 @@ s {
   padding-top: 2rem;
   max-width: 600px;
 }
+.other-citys {
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5rem;
+  background-color: rgba(240, 255, 255, 0.267);
+}
+.other-citys:hover {
+  color: #fff;
+  font-weight: 500;
+}
 #centralImageWrap {
   display: flex;
   width: 24.375rem;
@@ -103,3 +116,78 @@ s {
   padding: 1rem;
   margin: 0 0.5rem 0 0.5rem;
 }
+
+/* secend page */
+
+.citysHero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: top;
+  position: relative;
+  padding-top: 6rem;
+  background-image: url(../images/bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.back-link {
+  position: absolute;
+  left: 30px;
+  top: 15px;
+  color: #fff;
+}
+.back-link:hover {
+  color: #fff;
+  font-weight: 500;
+}
+.citys-wrapper {
+  padding: 0 1rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+}
+.city-forecast-wrap {
+  width: 350px;
+  height: 200px;
+  background-image: url(../images/citybg.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-around;
+  padding: 1rem;
+  position: relative;
+}
+.city-current-temp {
+  font-size: 2.5rem;
+}
+.side-flex {
+  display: flex;
+  justify-content: space-between !important;
+  gap: 2rem;
+}
+.side-flex p {
+  font-size: 1rem;
+}
+.city-country-name {
+  font-size: 1.5rem;
+}
+.img-city-forecast {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 150px;
+}
+
+/* <div class="citys-wrapper">
+          <div class="city-forecast-wrap">
+            <p class="city-current-temp">19^</p>
+            <div class="side-flex">
+              <p class="h-temp">24</p>
+              <p class="l-temp">8</p>
+            </div> */

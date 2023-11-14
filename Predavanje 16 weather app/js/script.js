@@ -43,7 +43,46 @@ $(document).ready(function () {
       });
     },
   });
+
+  $.ajax({
+    method: "GET",
+    url: "http://api.weatherapi.com/v1/forecast.json",
+    data: {
+      key: "aace614e5c374ad194f145139231311",
+      q: "belgrade",
+      days: 1,
+      aqi: "no",
+      alerts: "no",
+    },
+
+    success: function (response) {
+      console.log(response);
+      $(".city-country-name").text(
+        response["location"]["name"] + " , " + response["location"]["country"]
+      );
+      $(".city-current-temp").text(response["current"]["temp_c"] + "°C");
+      $(".h-temp").text(
+        Math.round(response["forecast"]["forecastday"][0]["day"]["maxtemp_c"]) +
+          "°C"
+      );
+      $(".l-temp").text(
+        Math.round(response["forecast"]["forecastday"][0]["day"]["mintemp_c"]) +
+          "°C"
+      );
+    },
+  });
 });
+
+/*<div class="citys-wrapper">
+          <div class="city-forecast-wrap">
+            <p class="city-current-temp">19^</p>
+            <div class="side-flex">
+              <p class="h-temp">24</p>
+              <p class="l-temp">8</p>
+            </div>
+            <p class="city-country-name">Montreal,Canada</p>
+            <img class="img-city-forecast" src="images/midrain.png" />
+          </div> */
 
 // $(document).ready(function () {
 //   var sati = [];
