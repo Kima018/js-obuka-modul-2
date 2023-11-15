@@ -120,11 +120,12 @@ s {
 /* secend page */
 
 .citysHero {
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: start;
-  align-items: top;
+  align-items: center;
   position: relative;
   padding-top: 6rem;
   background-image: url(../images/bg.png);

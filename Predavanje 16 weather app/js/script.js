@@ -44,45 +44,62 @@ $(document).ready(function () {
     },
   });
 
-  $.ajax({
-    method: "GET",
-    url: "http://api.weatherapi.com/v1/forecast.json",
-    data: {
-      key: "aace614e5c374ad194f145139231311",
-      q: "belgrade",
-      days: 1,
-      aqi: "no",
-      alerts: "no",
-    },
+  var citys = ["belgrade", "kragujevac", "subotica"];
+  citys.forEach(function (eachCity) {
+    $.ajax({
+      method: "GET",
+      url: "http://api.weatherapi.com/v1/forecast.json",
+      data: {
+        key: "aace614e5c374ad194f145139231311",
+        q: eachCity,
+        days: 1,
+        aqi: "no",
+        alerts: "no",
+      },
+      success: function (response) {
+        var divWrapper = $("<div class='city-forecast-wrap'></div>");
+        divWrapper.append(
+          "<p class='city-current-temp'>" +
+            response["current"]["temp_c"] +
+            "°C" +
+            "</p>"
+        );
+        var innerDiv = $('<div class="side-flex"></div>');
+        innerDiv.append(
+          "<p class='h-temp'>" +
+            Math.round(
+              response["forecast"]["forecastday"][0]["day"]["maxtemp_c"]
+            ) +
+            "°C" +
+            "</p>"
+        );
+        innerDiv.append(
+          "<p class='l-temp'>" +
+            Math.round(
+              response["forecast"]["forecastday"][0]["day"]["mintemp_c"]
+            ) +
+            "°C" +
+            "</p>"
+        );
+        divWrapper.append(innerDiv);
+        divWrapper.append(
+          "<p class='city-country-name'>" +
+            response["location"]["name"] +
+            " , " +
+            response["location"]["country"] +
+            "</p>"
+        );
+        divWrapper.append(
+          "<img class='img-city-forecast' src=" +
+            response["current"]["condition"]["icon"] +
+            " />"
+        );
 
-    success: function (response) {
-      console.log(response);
-      $(".city-country-name").text(
-        response["location"]["name"] + " , " + response["location"]["country"]
-      );
-      $(".city-current-temp").text(response["current"]["temp_c"] + "°C");
-      $(".h-temp").text(
-        Math.round(response["forecast"]["forecastday"][0]["day"]["maxtemp_c"]) +
-          "°C"
-      );
-      $(".l-temp").text(
-        Math.round(response["forecast"]["forecastday"][0]["day"]["mintemp_c"]) +
-          "°C"
-      );
-    },
+        $(".citys-wrapper").append(divWrapper);
+      },
+    });
   });
 });
-
-/*<div class="citys-wrapper">
-          <div class="city-forecast-wrap">
-            <p class="city-current-temp">19^</p>
-            <div class="side-flex">
-              <p class="h-temp">24</p>
-              <p class="l-temp">8</p>
-            </div>
-            <p class="city-country-name">Montreal,Canada</p>
-            <img class="img-city-forecast" src="images/midrain.png" />
-          </div> */
 
 // $(document).ready(function () {
 //   var sati = [];
