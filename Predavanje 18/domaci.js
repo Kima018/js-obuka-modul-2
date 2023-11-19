@@ -2,22 +2,39 @@ var vozila = [];
 class Vozilo {
   vrsta;
   boja;
+  brzina;
+  tezina;
 
   static VRSTE_VOZILA = ["automobil", "letelica", "plovilo"];
   static BOJE_VOZILA = ["plava", "crvena", "zelena", "pink", "crna"];
 
-  constructor(vrsta, boja) {
+  constructor(vrsta, boja, brzina, tezina) {
     if (!Vozilo.VRSTE_VOZILA.includes(vrsta) || typeof vrsta === "undefined") {
       throw new Error("Niste uneli ispravnu vrstu vozila");
     } else {
       this.vrsta = vrsta;
     }
 
-    if (!Vozilo.BOJE_VOZILA.includes(boja)) {
-      throw new Error("Morata odabrati boju vozila");
-    } else {
-      this.boja = boja;
-    }
+    // if (!Vozilo.BOJE_VOZILA.includes(boja)) {
+    //   throw new Error("Morata odabrati boju vozila");
+    // } else {
+    //   this.boja = boja;
+    // }
+    this.boja = boja;
+
+    // if (typeof brzina === "undefined") {
+    //   throw new Error("Morate uneti brzinu vozila!");
+    // } else {
+    //   this.brzina = brzina;
+    // }
+    this.brzina = brzina;
+
+    // if (typeof tezina === "undefined") {
+    //   throw new Error("Morate uneti tezinu vozila!");
+    // } else {
+    //   this.tezina = tezina;
+    // }
+    this.tezina = tezina;
   }
 
   //---------------------------------------------
@@ -28,7 +45,6 @@ class Automobil extends Vozilo {
   model;
   brojVrata;
   gorivo;
-  boja;
 
   static VRSTE_GORIVA = ["benzin", "dizel", "metan"];
   static BROJ_VRATA = ["3", "5"];
@@ -37,8 +53,8 @@ class Automobil extends Vozilo {
   static BMW_MODELI = ["M5", "M3", "X6"];
   static MERCEDES_MODELI = ["s-class", "sls-amg", "g-class"];
 
-  constructor(vrsta, marka, model, brojVrata, gorivo) {
-    super(vrsta);
+  constructor(vrsta, marka, model, brojVrata, gorivo, boja, brzina, tezina) {
+    super(vrsta, boja, brzina, tezina);
 
     if (!Automobil.MARKE_VOZILA.includes(marka)) {
       throw new Error("Morate izabrati marku automobila");
@@ -82,7 +98,6 @@ class Automobil extends Vozilo {
     }
   }
 }
-
 //---------------------------------------------
 
 var selectVrstaVozila = document.getElementById("vrsteVozila");
@@ -91,6 +106,8 @@ var selectGorivo = document.getElementById("vrstaGoriva");
 var selectMarka = document.getElementById("marke");
 var selectModel = document.getElementById("modeli");
 var selectBoje = document.getElementById("boje");
+var inputBrzina = document.getElementById("brzinaVozila");
+var inputTezina = document.getElementById("tezinaVozila");
 
 function addModel(lista, selectModel) {
   var modeliSelect = document.getElementById("modeli");
@@ -153,25 +170,52 @@ Vozilo.BOJE_VOZILA.forEach(function (vrsta) {
 });
 
 document.getElementById("napraviVozilo").addEventListener("click", function () {
-  if (selectVrstaVozila.value.toLowerCase() === "automobil") {
+  if (selectVrstaVozila.value.toLowerCase() == "automobil") {
     var auto = new Automobil(
       selectVrstaVozila.value,
       selectMarka.value,
       selectModel.value,
       selectVrata.value,
       selectGorivo.value,
-      selectBoje.value
+      selectBoje.value,
+      inputBrzina.value,
+      inputTezina.value
     );
-    var vozilo = new Vozilo(selectVrstaVozila.value);
+
+    var vozilo = new Vozilo(
+      selectVrstaVozila.value,
+      selectBoje.value,
+      inputBrzina.value,
+      inputTezina.value
+    );
+
     vozilo.marka = auto.marka;
     vozilo.model = auto.model;
     vozilo.brojVrata = auto.brojVrata;
     vozilo.gorivo = auto.gorivo;
-    vozilo.boja = auto.boja;
 
     vozila.push(vozilo);
     console.log(vozila);
   }
 });
 
-//
+// var noviAuto = new Automobil(
+//   "automobil",
+//   "audi",
+//   "A4",
+//   "3",
+//   "benzin",
+//   "boja",
+//   "brzina",
+//   "tezina"
+// );
+// console.log(noviAuto);
+
+// 1 "automobil",
+// 2 "audi",
+// 3 "A4",
+// 4 "3",
+// 5 "benzin",
+// 6 "boja",
+// 7 "brzina",
+// 8 "tezina"
