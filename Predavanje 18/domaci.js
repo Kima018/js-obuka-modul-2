@@ -1,4 +1,6 @@
 var vozila = [];
+
+//klasa vozilo
 class Vozilo {
   vrsta;
   boja;
@@ -15,31 +17,28 @@ class Vozilo {
       this.vrsta = vrsta;
     }
 
-    // if (!Vozilo.BOJE_VOZILA.includes(boja)) {
-    //   throw new Error("Morata odabrati boju vozila");
-    // } else {
-    //   this.boja = boja;
-    // }
-    this.boja = boja;
+    if (!Vozilo.BOJE_VOZILA.includes(boja)) {
+      throw new Error("Morata odabrati boju vozila");
+    } else {
+      this.boja = boja;
+    }
 
-    // if (typeof brzina === "undefined") {
-    //   throw new Error("Morate uneti brzinu vozila!");
-    // } else {
-    //   this.brzina = brzina;
-    // }
-    this.brzina = brzina;
+    if (brzina === "" || typeof brzina == "undefined") {
+      throw new Error("Morate uneti brzinu vozila!");
+    } else {
+      this.brzina = brzina;
+    }
 
-    // if (typeof tezina === "undefined") {
-    //   throw new Error("Morate uneti tezinu vozila!");
-    // } else {
-    //   this.tezina = tezina;
-    // }
-    this.tezina = tezina;
+    if (tezina === "" || typeof tezina == "undefined") {
+      throw new Error("Morate uneti tezinu vozila!");
+    } else {
+      this.tezina = tezina;
+    }
   }
 
   //---------------------------------------------
 }
-
+//klasa automobil
 class Automobil extends Vozilo {
   marka;
   model;
@@ -98,8 +97,60 @@ class Automobil extends Vozilo {
     }
   }
 }
-//---------------------------------------------
+//klasa plovilo
+class Plovilo extends Vozilo {
+  tip;
+  static TIPOVI_PLOVILA = ["jahta", "jedrenjak", "fregata"];
 
+  constructor(vrsta, tip, boja, brzina, tezina) {
+    super(vrsta, boja, brzina, tezina);
+
+    if (!Plovilo.TIPOVI_PLOVILA.includes(tip)) {
+      throw new Error(`Plovilo mora biti ${Plovilo.TIPOVI_PLOVILA}`);
+    } else {
+      this.tip = tip;
+    }
+    this.tip = tip;
+  }
+}
+var novoPlovilo = new Plovilo("plovilo", "jahta", "crvena", 224, 1140);
+vozila.push(novoPlovilo);
+
+class Letelica extends Vozilo {
+  tip;
+  bespilotna; // true / false
+  static TIPOVI_LETELICA = ["avion", "helihopter"];
+
+  constructor(vrsta, tip, bespilotna, boja, brzina, tezina) {
+    super(vrsta, boja, brzina, tezina);
+    this.bespilotna = bespilotna;
+
+    if (!Letelica.TIPOVI_LETELICA.includes(tip)) {
+      throw new Error(`Letelica mora biti ${Letelica.TIPOVI_LETELICA}`);
+    } else {
+      this.tip = tip;
+    }
+    if (bespilotna == "da") {
+      bespilotna = true;
+    } else if (bespilotna == "ne") {
+      bespilotna = false;
+    }
+    bespilotna
+      ? (this.bespilotna = "bespilotna")
+      : (this.bespilotna = " nije bespilotna");
+  }
+}
+var novaLetelica = new Letelica(
+  "letelica",
+  "avion",
+  "da",
+  "plava",
+  "4000kmh",
+  "104t"
+);
+vozila.push(novaLetelica);
+
+//---------------------------------------------ispisivanje podata za automobile
 var selectVrstaVozila = document.getElementById("vrsteVozila");
 var selectVrata = document.getElementById("brojVrata");
 var selectGorivo = document.getElementById("vrstaGoriva");
@@ -182,34 +233,23 @@ document.getElementById("napraviVozilo").addEventListener("click", function () {
       inputTezina.value
     );
 
-    var vozilo = new Vozilo(
-      selectVrstaVozila.value,
-      selectBoje.value,
-      inputBrzina.value,
-      inputTezina.value
-    );
-
-    vozilo.marka = auto.marka;
-    vozilo.model = auto.model;
-    vozilo.brojVrata = auto.brojVrata;
-    vozilo.gorivo = auto.gorivo;
-
-    vozila.push(vozilo);
+    vozila.push(auto);
     console.log(vozila);
   }
 });
 
-// var noviAuto = new Automobil(
-//   "automobil",
-//   "audi",
-//   "A4",
-//   "3",
-//   "benzin",
-//   "boja",
-//   "brzina",
-//   "tezina"
-// );
-// console.log(noviAuto);
+var noviAuto = new Automobil(
+  "automobil",
+  "audi",
+  "A4",
+  "3",
+  "benzin",
+  "plava",
+  "225kmh",
+  "1400kg"
+);
+vozila.push(noviAuto);
+console.log(vozila);
 
 // 1 "automobil",
 // 2 "audi",
