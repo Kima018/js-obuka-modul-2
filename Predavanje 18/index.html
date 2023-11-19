@@ -11,6 +11,36 @@
     ></script>
   </head>
   <body>
+    <form
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
+      "
+    >
+      <select id="vrsteVozila" class="selektor">
+        <option value="" disabled selected hidden>Izaberi vrstu vozila</option>
+      </select>
+      <select id="marke" class="selektor">
+        <option value="" disabled selected hidden>Izaberi marku</option>
+      </select>
+      <select id="modeli" class="selektor">
+        <option value="" disabled selected hidden>Izaberi model</option>
+      </select>
+      <select id="brojVrata" class="selektor">
+        <option value="" disabled selected hidden>Izaberi broj vrata</option>
+      </select>
+      <select id="vrstaGoriva" class="selektor">
+        <option value="" disabled selected hidden>Izaberi vrstu goriva</option>
+      </select>
+      <select id="boje" class="selektor">
+        <option value="" disabled selected hidden>Izaberi boju auta</option>
+      </select>
+
+      <button id="napraviVozilo" type="button">Napravi vozilo</button>
+    </form>
+
     <script src="domaci.js"></script>
     <!-- <script src="script.js"></script> -->
   </body>
