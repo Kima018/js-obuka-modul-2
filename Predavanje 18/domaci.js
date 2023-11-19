@@ -1,14 +1,22 @@
 var vozila = [];
 class Vozilo {
   vrsta;
+  boja;
 
   static VRSTE_VOZILA = ["automobil", "letelica", "plovilo"];
+  static BOJE_VOZILA = ["plava", "crvena", "zelena", "pink", "crna"];
 
   constructor(vrsta, boja) {
     if (!Vozilo.VRSTE_VOZILA.includes(vrsta) || typeof vrsta === "undefined") {
       throw new Error("Niste uneli ispravnu vrstu vozila");
     } else {
       this.vrsta = vrsta;
+    }
+
+    if (!Vozilo.BOJE_VOZILA.includes(boja)) {
+      throw new Error("Morata odabrati boju vozila");
+    } else {
+      this.boja = boja;
     }
   }
 
@@ -28,9 +36,8 @@ class Automobil extends Vozilo {
   static AUDI_MODELI = ["A4", "A6"];
   static BMW_MODELI = ["M5", "M3", "X6"];
   static MERCEDES_MODELI = ["s-class", "sls-amg", "g-class"];
-  static BOJE_VOZILA = ["plava", "crvena", "zelena", "pink", "crna"];
 
-  constructor(vrsta, marka, model, brojVrata, gorivo, boja) {
+  constructor(vrsta, marka, model, brojVrata, gorivo) {
     super(vrsta);
 
     if (!Automobil.MARKE_VOZILA.includes(marka)) {
@@ -73,17 +80,12 @@ class Automobil extends Vozilo {
     } else {
       this.gorivo = gorivo;
     }
-    if (!Automobil.BOJE_VOZILA.includes(boja)) {
-      throw new Error("Morata odabrati boju vozila");
-    } else {
-      this.boja = boja;
-    }
   }
 }
 
 //---------------------------------------------
 
-var selectVozila = document.getElementById("vrsteVozila");
+var selectVrstaVozila = document.getElementById("vrsteVozila");
 var selectVrata = document.getElementById("brojVrata");
 var selectGorivo = document.getElementById("vrstaGoriva");
 var selectMarka = document.getElementById("marke");
@@ -105,7 +107,7 @@ Vozilo.VRSTE_VOZILA.forEach(function (vrsta) {
   var option = document.createElement("option");
   option.text = vrsta;
   option.value = vrsta;
-  selectVozila.append(option);
+  selectVrstaVozila.append(option);
 });
 
 Automobil.MARKE_VOZILA.forEach(function (vrsta) {
@@ -116,14 +118,16 @@ Automobil.MARKE_VOZILA.forEach(function (vrsta) {
 });
 
 selectMarka.addEventListener("change", function () {
-  if (selectMarka.value === "audi") {
-    addModel(Automobil.AUDI_MODELI, selectModel);
-  }
-  if (selectMarka.value === "BMW") {
-    addModel(Automobil.BMW_MODELI, selectModel);
-  }
-  if (selectMarka.value === "mercedes") {
-    addModel(Automobil.MERCEDES_MODELI, selectModel);
+  switch (selectMarka.value.toLowerCase()) {
+    case "audi":
+      addModel(Automobil.AUDI_MODELI, selectModel);
+      break;
+    case "bmw":
+      addModel(Automobil.BMW_MODELI, selectModel);
+      break;
+    case "mercedes":
+      addModel(Automobil.MERCEDES_MODELI, selectModel);
+      break;
   }
 });
 
@@ -141,7 +145,7 @@ Automobil.VRSTE_GORIVA.forEach(function (vrsta) {
   selectGorivo.append(option);
 });
 
-Automobil.BOJE_VOZILA.forEach(function (vrsta) {
+Vozilo.BOJE_VOZILA.forEach(function (vrsta) {
   var option = document.createElement("option");
   option.text = vrsta;
   option.value = vrsta;
@@ -149,26 +153,25 @@ Automobil.BOJE_VOZILA.forEach(function (vrsta) {
 });
 
 document.getElementById("napraviVozilo").addEventListener("click", function () {
-  vozila.push(
-    new Automobil(
-      selectVozila.value,
+  if (selectVrstaVozila.value.toLowerCase() === "automobil") {
+    var auto = new Automobil(
+      selectVrstaVozila.value,
       selectMarka.value,
       selectModel.value,
       selectVrata.value,
       selectGorivo.value,
       selectBoje.value
-    )
-  );
-  console.log(vozila);
-  console.log(selectVrata.value);
+    );
+    var vozilo = new Vozilo(selectVrstaVozila.value);
+    vozilo.marka = auto.marka;
+    vozilo.model = auto.model;
+    vozilo.brojVrata = auto.brojVrata;
+    vozilo.gorivo = auto.gorivo;
+    vozilo.boja = auto.boja;
+
+    vozila.push(vozilo);
+    console.log(vozila);
+  }
 });
 
-// var mojAuto = new Automobil(
-//   "automobil",
-//   "mercedes",
-//   "sls-amg",
-//   5,
-//   "benzin",
-//   "crvena"
-// );
-// console.log(mojAuto);
+//
