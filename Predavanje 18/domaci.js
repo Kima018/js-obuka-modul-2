@@ -52,6 +52,17 @@ class Automobil extends Vozilo {
   static BMW_MODELI = ["M5", "M3", "X6"];
   static MERCEDES_MODELI = ["s-class", "sls-amg", "g-class"];
 
+  static addModel(lista, selectModel) {
+    var modeliSelect = document.getElementById("modeli");
+    modeliSelect.innerHTML = `<option value="" disabled selected hidden>Izaberi model</option>`;
+    lista.forEach(function (model) {
+      var option = document.createElement("option");
+      option.text = model;
+      option.value = model;
+      selectModel.append(option);
+    });
+  }
+
   constructor(vrsta, marka, model, brojVrata, gorivo, boja, brzina, tezina) {
     super(vrsta, boja, brzina, tezina);
 
@@ -160,17 +171,6 @@ var selectBoje = document.getElementById("boje");
 var inputBrzina = document.getElementById("brzinaVozila");
 var inputTezina = document.getElementById("tezinaVozila");
 
-function addModel(lista, selectModel) {
-  var modeliSelect = document.getElementById("modeli");
-  modeliSelect.innerHTML = `<option value="" disabled selected hidden>Izaberi model</option>`;
-  lista.forEach(function (model) {
-    var option = document.createElement("option");
-    option.text = model;
-    option.value = model;
-    selectModel.append(option);
-  });
-}
-
 Vozilo.VRSTE_VOZILA.forEach(function (vrsta) {
   var option = document.createElement("option");
   option.text = vrsta;
@@ -188,13 +188,13 @@ Automobil.MARKE_VOZILA.forEach(function (vrsta) {
 selectMarka.addEventListener("change", function () {
   switch (selectMarka.value.toLowerCase()) {
     case "audi":
-      addModel(Automobil.AUDI_MODELI, selectModel);
+      Automobil.addModel(Automobil.AUDI_MODELI, selectModel);
       break;
     case "bmw":
-      addModel(Automobil.BMW_MODELI, selectModel);
+      Automobil.addModel(Automobil.BMW_MODELI, selectModel);
       break;
     case "mercedes":
-      addModel(Automobil.MERCEDES_MODELI, selectModel);
+      Automobil.addModel(Automobil.MERCEDES_MODELI, selectModel);
       break;
   }
 });
